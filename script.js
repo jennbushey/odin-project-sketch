@@ -1,10 +1,13 @@
 createGrid();
+mouseOver();
 
-//on mouseover adds hover id
-const squares = document.querySelectorAll('.square');
-squares.forEach(square => square.addEventListener('mouseover', () => {
-    square.id = 'hover';
-}));
+function mouseOver() {
+    //on mouseover adds hover id
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => square.addEventListener('mouseover', () => {
+        square.id = 'hover';
+    }));
+}
 
 function createGrid() {
     //creates i number of div squares
