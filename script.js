@@ -1,5 +1,11 @@
 createGrid();
 
+//on mouseover adds hover id
+const squares = document.querySelectorAll('.square');
+squares.forEach(square => square.addEventListener('mouseover', () => {
+    square.id = 'hover';
+}));
+
 function createGrid() {
     //creates i number of div squares
     const container = document.querySelector('.container');
@@ -10,14 +16,14 @@ function createGrid() {
         //creates row
         let row = document.createElement('div');
         row.classList.add('row');
-        row.textContent = i;
+        //row.textContent = i;
         container.appendChild(row);
 
         for (let i = 0; i < rootBox; i++) {
             //creates columns within rows
             let square = document.createElement('div');
             square.classList.add('square');
-            square.textContent = i;
+            //square.textContent = i;
             row.appendChild(square);
         };
     };
