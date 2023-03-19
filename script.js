@@ -1,4 +1,6 @@
-createGrid();
+const boxes = prompt('How many squares?');
+
+createGrid(boxes);
 mouseOver();
 
 function mouseOver() {
@@ -9,32 +11,24 @@ function mouseOver() {
     }));
 }
 
-function createGrid() {
+function createGrid(boxes) {
     //creates i number of div squares
     const container = document.querySelector('.container');
     const row = document.querySelector('.container');
-    const rootBox = squareGrid();
 
-    for (let i = 0; i < rootBox; i++) {
+    for (let i = 0; i < boxes; i++) {
         //creates row
         let row = document.createElement('div');
         row.classList.add('row');
         //row.textContent = i;
         container.appendChild(row);
 
-        for (let i = 0; i < rootBox; i++) {
+        for (let j = 0; j < boxes; j++) {
             //creates columns within rows
             let square = document.createElement('div');
             square.classList.add('square');
-            //square.textContent = i;
+            //square.textContent = j;
             row.appendChild(square);
         };
     };
-};
-
-function squareGrid() {
-    //find nearest square of a given number
-    let j = Math.floor(Math.sqrt(16));
-    console.log(j);
-    return j;
 };
