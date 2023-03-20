@@ -1,7 +1,25 @@
-const boxes = prompt('How many squares?');
+clickButton();
 
-createGrid(boxes);
-mouseOver();
+function clickButton() {
+    click = document.querySelector('button');
+    click.addEventListener('click', () => start());
+}
+
+function start() {
+    //prompts user for size of etch-a-sketch
+    boxes = prompt('Pick a number between 1 and 100');
+    checkBoxes(boxes);
+    mouseOver();
+}
+
+function checkBoxes(boxes) {
+    //validates user input
+    if ((boxes < 1) || (boxes > 100)){
+        start();
+    } else {
+        createGrid(boxes);
+    }
+}
 
 function mouseOver() {
     //on mouseover adds hover id

@@ -1,24 +1,41 @@
+.body {
+    margin-left: 50%;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.border {
+    display: flex;
+}
+
+
+.side {
+    flex-grow: 1;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    border: 1px solid slategray;
+    width: 720px;
+    height: 720px;
 }
 
 .row {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: baseline;
+    flex-grow: 1;
+    border: 1px black;  
 }
 
 .square {
-    width: 20px;
-    height: 20px;
-    border: dotted black;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0.1px;
+    flex-grow: 1;
+    min-width: 1px;
+    min-height: 1px;
+    align-items: stretch;
 }
 
 #hover {
