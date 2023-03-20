@@ -1,22 +1,32 @@
-clickButton();
+let boxes = 64;
+startUp(boxes);
 
-function clickButton() {
-    click = document.querySelector('button');
+function startUp() {
+    createGrid(boxes);
+    mouseOver();
+
+    click = document.querySelector('#clear');
+    click.addEventListener('click', () => clearBoard(boxes));
+
+    click = document.querySelector('#size');
     click.addEventListener('click', () => start());
 }
+
 
 function start() {
     //prompts user for size of etch-a-sketch
     boxes = prompt('Pick a number between 1 and 100');
     checkBoxes(boxes);
-    mouseOver();
 }
 
 function checkBoxes(boxes) {
     //validates user input
-    if ((boxes < 1) || (boxes > 100)){
+    if (isNaN(boxes)) {
+        start();
+    } else if ((boxes < 1) || (boxes > 100)) {
         start();
     } else {
+        reset();
         createGrid(boxes);
     }
 }
@@ -31,6 +41,7 @@ function mouseOver() {
 
 function createGrid(boxes) {
     //creates i number of div squares
+
     const container = document.querySelector('.container');
     const row = document.querySelector('.container');
 
@@ -49,4 +60,21 @@ function createGrid(boxes) {
             row.appendChild(square);
         };
     };
+    mouseOver();
 };
+
+function reset() {
+    // removes all previously added squares
+    let container = document.querySelector('.container');
+    let square = container.querySelectorAll('div');
+    square.forEach((div) => div.remove());
+}
+
+function clearBoard(boxes) {
+    // removes all hover shading
+    let container = document.querySelector('.container');
+    let square = container.querySelectorAll('#hover');
+    square.forEach((hover) => hover.remove());
+    reset();
+    createGrid(boxes);
+}
