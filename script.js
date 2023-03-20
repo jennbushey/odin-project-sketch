@@ -12,7 +12,6 @@ function startUp() {
     click.addEventListener('click', () => start());
 }
 
-
 function start() {
     //prompts user for size of etch-a-sketch
     boxes = prompt('Pick a number between 1 and 100');
